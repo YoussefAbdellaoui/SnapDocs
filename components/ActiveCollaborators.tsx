@@ -5,7 +5,7 @@ const ActiveCollaborators = () => {
   const others = useOthers();
 
   const collaborators = others.map((other) => other.info);
-
+  // yt 1:22:54
   return (
     <ul className='collaborators-list'>
       {collaborators.map(({ id, avatar, name, color }) => (

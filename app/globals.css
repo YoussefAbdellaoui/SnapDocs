@@ -99,7 +99,7 @@
   }
 
   .document-list-title {
-    @apply max-w-[730px] items-end flex w-full justify-between;
+    @apply max-w-[730px] items-center flex w-full justify-between;
   }
 
   .document-list-item {

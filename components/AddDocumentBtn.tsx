@@ -20,7 +20,7 @@ const router = useRouter();
   }
 
   return (
-    <Button type='submit' onClick={AddDocumentHandler} className='gradient-blue flex gap-1 shadow-md'>
+    <Button type='submit' onClick={AddDocumentHandler} className='gradient-blue flex gap-1 shadow-md p-4'>
         <Image 
           src="/assets/icons/add.svg"
           alt='Add icon'

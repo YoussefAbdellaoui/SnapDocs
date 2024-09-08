@@ -12,7 +12,6 @@ import { redirect } from 'next/navigation';
 const Home = async () => {
   const clerkUser = await currentUser();
   if(!clerkUser) redirect('/sign-in');
-  // yt 1:45:36
   const roomDocuments = await getDocuments(clerkUser.emailAddresses[0].emailAddress);
 
   return (

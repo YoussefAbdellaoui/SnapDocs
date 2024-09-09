@@ -28,7 +28,6 @@ function Placeholder() {
 export function Editor({roomId, currentUserType}: { roomId: string, currentUserType: UserType }) {
   const status = useEditorStatus();
   const { threads } = useThreads();
-  // yt 1:58:14
 
   const initialConfig = liveblocksConfig({
     namespace: 'Editor',

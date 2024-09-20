@@ -10,7 +10,7 @@ import { Input } from './ui/input'
 import Image from 'next/image'
 import { updateDocument } from '@/lib/actions/room.actions'
 import Loader from './Loader'
-import ShareModel from '@/components/ShareModel'
+import ShareModal from '@/components/ShareModal'
 
 const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: CollaborativeRoomProps) => {
 
@@ -110,7 +110,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
                     <div className='flex w-full flex-1 justify-end gap-2 sm:gap-3'>
                       <ActiveCollaborators />
 
-                      <ShareModel
+                      <ShareModal
                         roomId={roomId}
                         collaborators={users}
                         creatorId={roomMetadata.creatorId}

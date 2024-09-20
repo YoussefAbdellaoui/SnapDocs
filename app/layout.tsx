@@ -13,8 +13,8 @@ const fontSans = FontSans({
 })
 
 export const metadata: Metadata = {
-  title: 'Live Documents',
-  description: "Your documents, live."
+  title: 'SnapDocs, Your Live Documents App',
+  description: "SnapDocs, documents live and ready."
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

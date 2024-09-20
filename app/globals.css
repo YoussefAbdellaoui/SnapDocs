@@ -168,6 +168,10 @@
   .collaborative-room {
     @apply flex size-full max-h-screen flex-1 flex-col items-center overflow-hidden;
   }
+
+  .hover-effect {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
 }
 
 /* ======================== Clerk Override */

@@ -8,7 +8,7 @@ import { ReactNode } from 'react'
 
 const Provider = ({ children }: { children: ReactNode }) => {
   const { user: clerkUser } = useUser();
-  // yt 2:10:30
+
   return (
     <LiveblocksProvider 
       authEndpoint="/api/liveblocks-auth"

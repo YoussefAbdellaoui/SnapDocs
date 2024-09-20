@@ -1,25 +1,26 @@
 'use client'
 
-import { useSelf } from "@liveblocks/react/suspense";
-import React, { useState } from "react";
 import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-  } from "@/components/ui/dialog"
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+
+import { useSelf } from '@liveblocks/react/suspense';
+import React, { useState } from 'react'
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
-import UserTypeSelector from "@/components/UserTypeSelector";
-import Collaborator from "@/components/Collaborator";
+import UserTypeSelector from "./UserTypeSelector";
+import Collaborator from "./Collaborator";
 import { updateDocumentAccess } from "@/lib/actions/room.actions";
-  
 
-const ShareModel = ({ roomId, collaborators, creatorId, currentUserType }: ShareDocumentDialogProps) => {
+const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: ShareDocumentDialogProps) => {
   const user = useSelf();
 
   const [open, setOpen] = useState(false);
@@ -31,10 +32,10 @@ const ShareModel = ({ roomId, collaborators, creatorId, currentUserType }: Share
   const shareDocumentHandler = async () => {
     setLoading(true);
 
-    await updateDocumentAccess({
-      roomId,
-      email,
-      userType: userType as UserType,
+    await updateDocumentAccess({ 
+      roomId, 
+      email, 
+      userType: userType as UserType, 
       updatedBy: user.info,
     });
 
@@ -42,29 +43,29 @@ const ShareModel = ({ roomId, collaborators, creatorId, currentUserType }: Share
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen} >
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
         <Button className="gradient-blue flex h-9 gap-1 px-4" disabled={currentUserType !== 'editor'}>
-            <Image 
-              src={"/assets/icons/share.svg"}
-              alt="Share Document"
-              width={20}
-              height={20}
-              className="min-w-4 md:size-5"
-            />
-            <p className="mr-1 hidden sm:block">
-              Share
-            </p>
+          <Image
+            src="/assets/icons/share.svg"
+            alt="share"
+            width={20}
+            height={20}
+            className="min-w-4 md:size-5"
+          />
+          <p className="mr-1 hidden sm:block">
+            Share
+          </p>
         </Button>
       </DialogTrigger>
-      <DialogContent className="shad-dialog" >
+      <DialogContent className="shad-dialog">
         <DialogHeader>
-          <DialogTitle>Decide who can view this project</DialogTitle>
-          <DialogDescription>Choose who can view this document</DialogDescription>
+          <DialogTitle>Manage who can view this project</DialogTitle>
+          <DialogDescription>Select which users can view and edit this document</DialogDescription>
         </DialogHeader>
 
-        <Label htmlFor="email" className="mt-6 text-blue-300">
-            Email address
+        <Label htmlFor="email" className="mt-6 text-blue-100">
+          Email address
         </Label>
         <div className="flex items-center gap-3">
           <div className="flex flex-1 rounded-md bg-dark-400">
@@ -73,7 +74,7 @@ const ShareModel = ({ roomId, collaborators, creatorId, currentUserType }: Share
               placeholder="Enter email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="shaere-input"
+              className="share-input"
             />
             <UserTypeSelector 
               userType={userType}
@@ -81,7 +82,7 @@ const ShareModel = ({ roomId, collaborators, creatorId, currentUserType }: Share
             />
           </div>
           <Button type="submit" onClick={shareDocumentHandler} className="gradient-blue flex h-full gap-1 px-5" disabled={loading}>
-            {loading ? 'Sharing...' : 'Share'}
+            {loading ? 'Sending...' : 'Invite'}
           </Button>
         </div>
 
@@ -101,8 +102,7 @@ const ShareModel = ({ roomId, collaborators, creatorId, currentUserType }: Share
         </div>
       </DialogContent>
     </Dialog>
-
   )
 }
 
-export default ShareModel
+export default ShareModal

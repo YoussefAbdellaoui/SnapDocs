@@ -19,6 +19,7 @@ import { Input } from "./ui/input";
 import UserTypeSelector from "./UserTypeSelector";
 import Collaborator from "./Collaborator";
 import { updateDocumentAccess } from "@/lib/actions/room.actions";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "./ui/alert-dialog";
 
 const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: ShareDocumentDialogProps) => {
   const user = useSelf();
@@ -81,9 +82,26 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
               setUserType={setUserType}
             />
           </div>
-          <Button type="submit" onClick={shareDocumentHandler} className="gradient-blue flex h-full gap-1 px-5" disabled={loading}>
+          <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button type="submit" onClick={shareDocumentHandler} className="gradient-blue flex h-full gap-1 px-5" disabled={loading}>
             {loading ? 'Sending...' : 'Invite'}
           </Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-black">Friendly reminder 😄</AlertDialogTitle>
+          <AlertDialogDescription>
+            Make sure that the person you‘re inviting has an account 
+            on SnapDocs, otherwise they won’t be able to access this document.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogAction className="bg-blue-400">Invite</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+
         </div>
 
         <div className="my-2 space-y-2">

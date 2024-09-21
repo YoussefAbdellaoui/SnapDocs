@@ -15,6 +15,7 @@ if(!room) redirect('/');
 const userIds = Object.keys(room.usersAccesses);
 const users = await getClerkUsers({ userIds });
 
+// Metalnote: One you try to invite someone that doen't have an account, you will get an error (Cannot read properties of null (reading 'email'))
 const usersData = users.map((user: User) => ({
   ...user,
   userType: room.usersAccesses[user.email]?.includes('room:write')

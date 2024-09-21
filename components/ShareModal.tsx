@@ -97,6 +97,7 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
+          <AlertDialogCancel className="bg-blue-400 border-blue-100">Cancel</AlertDialogCancel>
           <AlertDialogAction className="bg-blue-400">Invite</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

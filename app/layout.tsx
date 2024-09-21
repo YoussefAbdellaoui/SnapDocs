@@ -1,4 +1,4 @@
-
+import { Analytics } from "@vercel/analytics/react"
 import { Inter as FontSans } from "next/font/google"
 import './globals.css'
 import { cn } from "@/lib/utils"
@@ -39,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Provider>
           {children}
         </Provider>
+        <Analytics />
       </body>
     </html>
     </ClerkProvider>

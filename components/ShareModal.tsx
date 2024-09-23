@@ -84,7 +84,7 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
           </div>
           <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button type="submit" onClick={shareDocumentHandler} className="gradient-blue flex h-full gap-1 px-5" disabled={loading}>
+        <Button className="gradient-blue flex h-full gap-1 px-5" disabled={loading}>
             {loading ? 'Sending...' : 'Invite'}
           </Button>
       </AlertDialogTrigger>
@@ -98,7 +98,9 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel className="bg-blue-400 border-blue-100">Cancel</AlertDialogCancel>
-          <AlertDialogAction className="bg-blue-400">Invite</AlertDialogAction>
+          <AlertDialogAction type="submit" onClick={shareDocumentHandler} className="bg-blue-400" disabled={loading}>
+            {loading ? 'Sending...' : 'Invite'}
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

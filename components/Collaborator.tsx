@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import UserTypeSelector from './UserTypeSelector';
 import { Button } from './ui/button';
 import { removeCollaborator, updateDocumentAccess } from '@/lib/actions/room.actions';
-import { User } from 'lucide-react';
 
 const Collaborator = ({ roomId, creatorId, collaborator, email, user }: CollaboratorProps) => {
   const [userType, setUserType] = useState(collaborator.userType || 'viewer');
@@ -34,8 +33,8 @@ const Collaborator = ({ roomId, creatorId, collaborator, email, user }: Collabor
     <li className="flex items-center justify-between gap-2 py-3">
       <div className="flex gap-2">
         <Image 
-          src={user.avatar}
-          alt={collaborator.name}
+          src={collaborator.avatar}
+          alt={collaborator.avatar}
           width={36}
           height={36}
           className="size-9 rounded-full"

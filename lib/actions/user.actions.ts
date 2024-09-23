@@ -14,7 +14,7 @@ export const getClerkUsers = async ({ userIds }: { userIds: string[]}) => {
         id: user.id,
         name: `${user.firstName} ${user.lastName}`,
         email: user.emailAddresses[0].emailAddress,
-        avatr: user.imageUrl,
+        avatar: user.imageUrl,
       }))
 
       const sortedUsers = userIds.map((email) => users.find((user) => user.email === email));

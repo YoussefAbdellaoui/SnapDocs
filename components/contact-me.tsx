@@ -1,9 +1,11 @@
+"'use client'"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 
-export default function ContactMe() {
+export function ContactMeComponent() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400">
       <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
